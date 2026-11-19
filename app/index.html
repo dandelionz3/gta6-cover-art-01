@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vice Cover Studio — offline cover maker</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">VCS</span> VICE COVER STUDIO</div>
+  <div class="brand-sub">Turn any photo into a multi-panel sunset poster — 100% offline</div>
+</header>
+
+<main class="shell">
+  <section class="stage-col">
+    <div class="canvas-wrap">
+      <canvas id="stage" width="1280" height="720"></canvas>
+      <div id="hint" class="hint">Load a photo to start — or try a sample below.</div>
+    </div>
+    <div class="photo-row">
+      <label class="btn primary">+ Add photos
+        <input id="fileInput" type="file" accept="image/*" multiple hidden>
+      </label>
+      <button class="btn" id="sampleBoulevard" type="button">Try sample: Boulevard</button>
+      <button class="btn" id="samplePier" type="button">Try sample: Pier</button>
+      <span id="photoCount" class="muted">0 photos loaded</span>
+    </div>
+    <p class="tip">Click a panel to select it, then drag inside it to pan the photo. Each panel can show a different photo.</p>
+  </section>
+
+  <aside class="controls">
+    <section class="group">
+      <h2>Layout</h2>
+      <div class="btn-grid" id="layoutBtns">
+        <button type="button" data-layout="hero-grid" class="active">Hero + 3</button>
+        <button type="button" data-layout="hero-three">Hero on top</button>
+        <button type="button" data-layout="full">Full bleed</button>
+        <button type="button" data-layout="strip3">3-panel strip</button>
+        <button type="button" data-layout="grid2x2">2 × 2 grid</button>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>Selected panel</h2>
+      <div class="row">
+        <label for="panelPhoto">Photo</label>
+        <select id="panelPhoto"></select>
+      </div>
+      <div class="row">
+        <label for="zoomRange">Zoom <span id="zoomVal">100%</span></label>
+        <input id="zoomRange" type="range" min="100" max="300" value="100">
+      </div>
+      <div class="row">
+        <button class="btn small" id="resetPan" type="button">Reset pan &amp; zoom</button>
+      </div>
+    </section>
+
+    <section class="group">
+      <h2>Caption</h2>
+      <label class="field">Title
+        <input id="titleInput" type="text" value="NEON SHORE" maxlength="28">
+      </label>
+      <label class="field">Script line
+        <input id="subtitleInput" type="text" value="one last ride down the coast" maxlength="48">
+      </label>
+      <label class="field">Badge
+        <input id="badgeInput" type="text" value="VICE CITY NIGHTS" maxlength="24">
+      </label>
+    </section>
+
+    <section class="group">
+      <h2>Colour grade</h2>
+      <div class="btn-grid" id="gradeBtns">
+        <button type="button" data-grade="sunset" class="active">Sunset</button>
+        <button type="button" data-grade="neon">Neon Night</button>
+        <button type="button" data-grade="golden">Golden Hour</button>
+        <button type="button" data-grade="noir">Mono Noir</button>
+      </div>
+      <label class="check"><input id="grainToggle" type="checkbox" checked> Film grain</label>
+      <label class="check"><input id="vignetteToggle" type="checkbox" checked> Vignette</label>
+    </section>
+
+    <section class="group">
+      <h2>Export PNG</h2>
+      <div class="btn-grid export">
+        <button class="btn primary" id="exportSquare" type="button">1080 × 1080</button>
+        <button class="btn primary" id="exportPortrait" type="button">1080 × 1350</button>
+        <button class="btn primary" id="exportWide" type="button">1920 × 1080</button>
+      </div>
+      <p class="muted small">Exports render straight from the canvas — what you see is what you get.</p>
+    </section>
+  </aside>
+</main>
+
+<footer class="foot">Vice Cover Studio — photos never leave this machine. Fonts: Anton &amp; Pacifico (SIL OFL, vendored under fonts/).</footer>
+
+<script src="src/app.js"></script>
+</body>
+</html>

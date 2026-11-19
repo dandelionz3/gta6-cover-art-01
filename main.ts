@@ -1,3 +1,5 @@
+// Vice Cover Studio — this entry's app: an offline multi-panel cover maker
+// (app/index.html + app/style.css + app/src/app.js), built in this session.
 // A working gta6-cover-art-01 entry (Node 22, standard library only): the app is this directory's app/ folder, plain
 // static files a desktop browser loads offline (app/index.html and its ES modules, no library and no network
 // request), and the program hands it in. It copies app/ and screenshots/ from beside this file to /output and writes
